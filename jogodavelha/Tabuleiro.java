@@ -11,6 +11,8 @@ public class Tabuleiro {
 	private Quadrante q9;
 
 	private Jogador jogadorAtual;
+	private Computador computadorAtual;
+	private Participante participanteAtual;
 	private int nJogada = 0;
 
 	public Tabuleiro() {
@@ -59,42 +61,42 @@ public class Tabuleiro {
 	}
 	public void jogar(int quadrante) {
 		
-		if (this.jogadorAtual!=null) {
+		if (this.participanteAtual!=null) {
 			switch (quadrante) {
 				case 1:
-					this.q1.setTipo(this.jogadorAtual.getTipo());
+					this.q1.setTipo(this.participanteAtual.getTipo());
 					this.q1.preencher(); 
 				break;
 				case 2:
-					this.q2.setTipo(this.jogadorAtual.getTipo());
+					this.q2.setTipo(this.participanteAtual.getTipo());
 					this.q2.preencher(); 
 				break;
 				case 3:
-					this.q3.setTipo(this.jogadorAtual.getTipo());
+					this.q3.setTipo(this.participanteAtual.getTipo());
 					this.q3.preencher(); 
 				break;
 				case 4:
-					this.q4.setTipo(this.jogadorAtual.getTipo());
+					this.q4.setTipo(this.participanteAtual.getTipo());
 					this.q4.preencher(); 
 				break;
 				case 5:
-					this.q5.setTipo(this.jogadorAtual.getTipo());
+					this.q5.setTipo(this.participanteAtual.getTipo());
 					this.q5.preencher(); 
 				break;
 				case 6:
-					this.q6.setTipo(this.jogadorAtual.getTipo());
+					this.q6.setTipo(this.participanteAtual.getTipo());
 					this.q6.preencher(); 
 				break;
 				case 7:
-					this.q7.setTipo(this.jogadorAtual.getTipo());
+					this.q7.setTipo(this.participanteAtual.getTipo());
 					this.q7.preencher(); 
 				break;
 				case 8:
-					this.q8.setTipo(this.jogadorAtual.getTipo());
+					this.q8.setTipo(this.participanteAtual.getTipo());
 					this.q8.preencher(); 
 				break;
 				case 9:
-					this.q9.setTipo(this.jogadorAtual.getTipo());
+					this.q9.setTipo(this.participanteAtual.getTipo());
 					this.q9.preencher(); 
 				break;
 				default:
@@ -103,12 +105,19 @@ public class Tabuleiro {
 		}
 		nJogada++;
 	}
-	public Jogador getJogadorAtual() {
-		return this.jogadorAtual;
+	public Participante getparticipanteAtual() {
+		return this.participanteAtual;
 	}
-	public void setJogadorAtual(Jogador jogadorAtual){
-		this.jogadorAtual = jogadorAtual;
+	public void setparticipanteAtual(Participante participanteAtual){
+		this.participanteAtual = participanteAtual;
 	}
+	
+	//public Computador getComputadorAtual() {
+		//return this.computadorAtual;
+	//}
+	//public void setComputadorAtual(Computador computadorAtual){
+	//	this.computadorAtual = computadorAtual;
+	//}
 	public boolean ganhou() {
 
 		if (q1.isPreenchido()&&q2.isPreenchido()&&q3.isPreenchido()) {

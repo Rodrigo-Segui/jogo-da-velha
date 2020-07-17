@@ -3,7 +3,7 @@ import java.util.Random;
 public class Partida {
 	private Scanner scan;
 	private Jogador jogador1;
-	private Jogador jogador2;
+	private Computador jogador2;
 	private int controleJogada;
 	private Tabuleiro tabuleiro;
 
@@ -27,17 +27,17 @@ public class Partida {
 		int opcaoComputador = scan.nextInt();
 		if (opcaoComputador == 0) {
 			String nome2 = "ComputadorA";
-			this.jogador2 = new Jogador(nome2,"O");
+			this.jogador2 = new Computador(nome2,"O");
 		}else if(opcaoComputador  == 1) {
 			String nome2 = "ComputadorB";
-			this.jogador2 = new Jogador(nome2,"O");
+			this.jogador2 = new Computador(nome2,"O");
 		}else if(opcaoComputador == 2) {
 			String nome2 = "ComputadorC";
-			this.jogador2 = new Jogador(nome2,"O");
+			this.jogador2 = new Computador(nome2,"O");
 		}else {
 			System.out.println("Opção Padrao ComputadorA");
 			String nome2 = "ComputadorA";
-			this.jogador2 = new Jogador(nome2,"O");
+			this.jogador2 = new Computador(nome2,"O");
 		}
 	}
 
@@ -46,21 +46,28 @@ public class Partida {
 		while (!tabuleiro.ganhou() && tabuleiro.getNJogada()<9) {
 			if (controleJogada==1) {
 				controleJogada=2;
-				tabuleiro.setJogadorAtual(jogador1);
+				tabuleiro.setparticipanteAtual(jogador1);
 			} else if (controleJogada==2) {
 				controleJogada=1;
-				tabuleiro.setJogadorAtual(jogador2);
+				tabuleiro.setparticipanteAtual(jogador2);
 			}
-			System.out.printf("%s é a sua vez! informe o número do quadrante que deseja marcar!\r\n",tabuleiro.getJogadorAtual().getNome());
+			System.out.printf("%s é a sua vez! informe o número do quadrante que deseja marcar!\r\n",tabuleiro.getparticipanteAtual().getNome());
+			
+			if(controleJogada==2) {
 			int num = scan.nextInt();
 			tabuleiro.jogar(num);
+			}else{
+				int num = 3;
+				tabuleiro.jogar(num);
+			}
+			
 			tabuleiro.desenharTabuleiro();
 			if  (tabuleiro.ganhou()) {
 				break;
 			}
 		}
 		if (tabuleiro.ganhou()) {
-			Jogador vencedor = tabuleiro.getJogadorAtual();
+			Participante vencedor = tabuleiro.getparticipanteAtual();
 			System.out.printf("%s você ganhou!!",vencedor.getNome());
 		} else {
 			System.out.println("Ninguém ganhou!");
