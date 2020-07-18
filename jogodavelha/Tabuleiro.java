@@ -26,6 +26,44 @@ public class Tabuleiro {
 		this.q8 = new Quadrante("8");
 		this.q9 = new Quadrante("9");
 		this.jogadorAtual = null;
+		
+		
+	}
+
+	public Quadrante getQ1() {
+		return q1;
+	}
+
+	public Quadrante getQ2() {
+		return q2;
+	}
+
+	public Quadrante getQ3() {
+		return q3;
+	}
+
+	public Quadrante getQ4() {
+		return q4;
+	}
+
+	public Quadrante getQ5() {
+		return q5;
+	}
+
+	public Quadrante getQ6() {
+		return q6;
+	}
+
+	public Quadrante getQ7() {
+		return q7;
+	}
+
+	public Quadrante getQ8() {
+		return q8;
+	}
+
+	public Quadrante getQ9() {
+		return q9;
 	}
 
 	public void desenharTabuleiro() {

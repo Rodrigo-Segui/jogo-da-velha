@@ -19,7 +19,7 @@ public class Partida {
 		System.out.println("Você será o Jogador X, Digite Seu Nome :");
 		String nome1 = scan.next();
 		this.jogador1 = new Jogador(nome1,"X");
-		System.out.println("O Computador será o Jogador O, Escolha a opcão de Máquina: ");
+		System.out.println("O Computador será o Jogador O, Escolha uma opcão de Máquina: ");
 		System.out.println("|0| ComputadorA");
 		System.out.println("|1| ComputadorB");
 		System.out.println("|2| ComputadorC");
@@ -51,13 +51,13 @@ public class Partida {
 				controleJogada=1;
 				tabuleiro.setparticipanteAtual(jogador2);
 			}
-			System.out.printf("%s é a sua vez! informe o número do quadrante que deseja marcar!\r\n",tabuleiro.getparticipanteAtual().getNome());
+			System.out.printf("%s é a sua vez! informe o número do quadrante que deseja marcar: \r\n",tabuleiro.getparticipanteAtual().getNome());
 			
 			if(controleJogada==2) {
 			int num = scan.nextInt();
 			tabuleiro.jogar(num);
 			}else{
-				int num = 3;
+				int num = jogador2.numberQuadrante(tabuleiro);
 				tabuleiro.jogar(num);
 			}
 			
