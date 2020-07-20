@@ -1,5 +1,10 @@
 public class Quadrante {
-
+	
+	/*---Classe Quadrante---*/
+    /*Responsavel por setar*/
+		/*estado de cada quadrante*/
+		/*tipo de cada quadrante*/
+	
 	private String estado;
 	private String tipo;
 

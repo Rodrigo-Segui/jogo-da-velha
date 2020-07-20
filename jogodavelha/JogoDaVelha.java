@@ -1,4 +1,10 @@
 import java.util.Scanner;
+
+/*---Classe Pricipal Jogo da Velha---*/
+/*Inicia a partida criando um objeto da classe Partida()*/
+/*Solicita um input com |0|cancelar partida ou |1| iniciar a partida*/
+	/*Se |0| o programa será finalizado*/
+    /*Se |1| o programa será redirecionado para o metodo iniciarpartida() da classe Partida*/
 public class JogoDaVelha {
 	
 	public static void main(String[] args) {
@@ -17,7 +23,7 @@ public class JogoDaVelha {
 				System.out.println("A partida terminou!");
 				break;
 			}
-			partida.play();
+			partida.iniciarpartida();
 		}
 
 	}

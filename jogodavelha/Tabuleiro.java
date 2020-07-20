@@ -1,5 +1,8 @@
 public class Tabuleiro {
 	
+			/*CLASSE TABULEIRO*/
+/*------------------Cria o Tabuleiro, assim como cada quadrante-------------------------------*/
+	
 	private Quadrante q1;
 	private Quadrante q2;
 	private Quadrante q3;
@@ -10,11 +13,10 @@ public class Tabuleiro {
 	private Quadrante q8;
 	private Quadrante q9;
 
-	private Jogador jogadorAtual;
-	private Computador computadorAtual;
 	private Participante participanteAtual;
 	private int nJogada = 0;
 
+	/*--------------------------construtor- cria cada quadrante-------------------------------*/
 	public Tabuleiro() {
 		this.q1 = new Quadrante("1");
 		this.q2 = new Quadrante("2");
@@ -25,10 +27,11 @@ public class Tabuleiro {
 		this.q7 = new Quadrante("7");
 		this.q8 = new Quadrante("8");
 		this.q9 = new Quadrante("9");
-		this.jogadorAtual = null;
+		this.participanteAtual = null;
 		
 		
 	}
+/*--------------------------------------------getters de cada quadrante---------------------------------------*/
 
 	public Quadrante getQ1() {
 		return q1;
@@ -65,7 +68,14 @@ public class Tabuleiro {
 	public Quadrante getQ9() {
 		return q9;
 	}
-
+/*-------------------------metodo responsavel por desenha o tabuleiro-----------------------------------*/
+									/* --------------------
+									 	 1	|	2	|  3
+									   --------------------
+									 	 4	|	5	|  6
+									   --------------------
+										 7	|	8	|  9
+									   --------------------*/
 	public void desenharTabuleiro() {
 		for(int i=0; i<13;i++) {
 			System.out.print(".");
@@ -94,11 +104,15 @@ public class Tabuleiro {
 				this.q9.getTipo()
 				);
 	}
+	
 	public int getNJogada() {
 		return this.nJogada;
 	}
+	
+/*-------------------------------metodo responsavel por realizar jogadas------------------------------------*/
 	public void jogar(int quadrante) {
 		
+		/*Seleciona tipo do participante(0 -> maquina, X-> humano) e preenche o quadrante*/
 		if (this.participanteAtual!=null) {
 			switch (quadrante) {
 				case 1:
@@ -143,6 +157,7 @@ public class Tabuleiro {
 		}
 		nJogada++;
 	}
+/*--------------------------------------getter e setter partipanteAtual---------------------------------------*/	
 	public Participante getparticipanteAtual() {
 		return this.participanteAtual;
 	}
@@ -150,49 +165,52 @@ public class Tabuleiro {
 		this.participanteAtual = participanteAtual;
 	}
 	
-	//public Computador getComputadorAtual() {
-		//return this.computadorAtual;
-	//}
-	//public void setComputadorAtual(Computador computadorAtual){
-	//	this.computadorAtual = computadorAtual;
-	//}
+/*--------------------------------metodo reponsavel por verificar se há um vencedor--------------------------*/
 	public boolean ganhou() {
-
+		
+		/*Verifica se quadrante 1, 2, 3 estão preenchidos com mesmo tipo*/
 		if (q1.isPreenchido()&&q2.isPreenchido()&&q3.isPreenchido()) {
 			if ( q1.getTipo().equals(q2.getTipo()) && q2.getTipo().equals(q3.getTipo())) {
 				return true;
 			}
 		}
+		/*Verifica se quadrante 4, 5, 6 estão preenchidos com mesmo tipo*/
 		if (q4.isPreenchido()&&q5.isPreenchido()&&q6.isPreenchido()) {
 			if ( q4.getTipo().equals(q5.getTipo()) && q5.getTipo().equals(q6.getTipo())) {
 				return true;
 			}
 		}
+		/*Verifica se quadrante 7, 8, 9 estão preenchidos com mesmo tipo*/
 		if (q7.isPreenchido()&&q8.isPreenchido()&&q9.isPreenchido()) {
 			if ( q7.getTipo().equals(q8.getTipo()) && q8.getTipo().equals(q9.getTipo())) {
 				return true;
 			}
 		}
+		/*Verifica se quadrante 1, 5, 9 estão preenchidos com mesmo tipo*/
 		if (q1.isPreenchido()&&q5.isPreenchido()&&q9.isPreenchido()) {
 			if ( q1.getTipo().equals(q5.getTipo()) && q5.getTipo().equals(q9.getTipo())) {
 				return true;
 			}
 		}
+		/*Verifica se quadrante 3, 5, 7 estão preenchidos com mesmo tipo*/
 		if (q3.isPreenchido()&&q5.isPreenchido()&&q7.isPreenchido()) {
 			if ( q3.getTipo().equals(q5.getTipo()) && q5.getTipo().equals(q7.getTipo())) {
 				return true;
 			}
 		}
+		/*Verifica se quadrante 1, 4, 7 estão preenchidos com mesmo tipo*/
 		if (q1.isPreenchido()&&q4.isPreenchido()&&q7.isPreenchido()) {
 			if ( q1.getTipo().equals(q4.getTipo()) && q4.getTipo().equals(q7.getTipo())) {
 				return true;
 			}
 		}
+		/*Verifica se quadrante 2, 5, 8 estão preenchidos com mesmo tipo*/
 		if (q2.isPreenchido()&&q5.isPreenchido()&&q8.isPreenchido()) {
 			if ( q2.getTipo().equals(q5.getTipo()) && q5.getTipo().equals(q8.getTipo())) {
 				return true;
 			}
 		}
+		/*Verifica se quadrante 3, 6, 9 estão preenchidos com mesmo tipo*/
 		if (q3.isPreenchido()&&q6.isPreenchido()&&q9.isPreenchido()) {
 			if ( q3.getTipo().equals(q6.getTipo()) && q6.getTipo().equals(q9.getTipo())) {
 				return true;
