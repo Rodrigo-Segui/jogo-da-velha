@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="jogo-da-velha" title="#delicinha" src="" width="500px" />
+    <img alt="jogo-da-velha" title="#delicinha" width="500px" />
 </h1>
 
 # jogo-da-velha
