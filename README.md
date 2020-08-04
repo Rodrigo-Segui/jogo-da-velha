@@ -1,7 +1,3 @@
-<h1 align="center">
-    <img alt="jogo-da-velha" title="#delicinha" width="500px" />
-</h1>
-
 # jogo-da-velha
 Implementação do jogo da velha em Java
 
@@ -31,4 +27,4 @@ O jogo-da-velha é um projeto onde é implementado a simulação de um jogo da v
   
  ## :memo: Licença
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/Rodrigo-Segui/jogo-da-velha/blob/master/LICENSE) para mais detalhes
